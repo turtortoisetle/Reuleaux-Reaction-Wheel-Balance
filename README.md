@@ -10,7 +10,7 @@
 * **嵌入式韌體 (`firmware/`)**
   * [💻 reuleaux_balance.ino](firmware/reuleaux_balance.ino) — ESP32 雙核任務隔離韌體 (v32)，包含 500Hz 閉環控制與 Wi-Fi WebServer 即時調參介面
 * **機構設計與 3D 列印件 (`hardware/`)**
-  * 📐 萊洛三角形機架與動量輪 3D 列印模型
+  * 📐 萊洛三角形機架與動量輪 3D 列印模型（`.stl` 可直接於 GitHub 網頁進行 3D 預覽，`.step` 為原始 CAD 檔）
 
 ## ⚙️ 核心技術亮點
 
