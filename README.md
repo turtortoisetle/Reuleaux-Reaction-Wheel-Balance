@@ -1,4 +1,4 @@
-# 自平衡萊洛三角形反作用力矩控制系統 (Reuleaux Reaction Wheel Balance)
+# 萊洛三角形反作用力矩自平衡控制系統 (Reuleaux Reaction Wheel Balance)
 
 基於 **ESP32 雙核微控制器** 與 **SimpleFOC 磁場導向控制** 之單軸動量輪自平衡裝置。系統結合 MPU-6050 姿態感測與 AS5600 磁編碼器，在單一接觸點上實現高動態響應的物理自平衡與自適應重心修正。
 
@@ -6,11 +6,11 @@
 
 * **技術報告與開發紀錄 (`docs/`)**
   * [📄 自平衡萊洛三角形系統開發報告](docs/01_Reuleaux_Balance_System_Development.pdf) — 完整硬體架構、控制律推導、10+ 次機構迭代與延遲除錯紀錄
-  * [📄 慣性測量單元 (IMU) 理論基礎與控制工程實務](docs/02_IMU_Theory_and_Control_Practice.pdf) — MEMS 原理、離散濾波、姿態解算與硬體抗干擾規範
+  * [📄 慣性測量單元 (IMU) 理論基礎與控制工程實務](docs/02_IMU_Theory_and_Control_Practice.pdf) — MEMS 原理、離散濾波、姿態解算與硬體抗干擾
 * **嵌入式韌體 (`firmware/`)**
   * [💻 reuleaux_balance.ino](firmware/reuleaux_balance.ino) — ESP32 雙核任務隔離韌體 (v32)，包含 500Hz 閉環控制與 Wi-Fi WebServer 即時調參介面
 * **機構設計與 3D 列印件 (`hardware/`)**
-  * 📐 萊洛三角形機架與動量輪 3D 列印模型（`.stl` 可直接於 GitHub 網頁進行 3D 預覽，`.step` 為原始 CAD 參數化組合檔）
+  * 📐 萊洛三角形機架與動量輪 3D 列印模型
 
 ## ⚙️ 核心技術亮點
 
@@ -18,7 +18,7 @@
 2. **ESP32 雙核任務隔離：**
    * **Core 1：** 全速運行 `motor.loopFOC()` 換向演算法與 `500Hz` 平衡控制迴圈，並透過 UDP (Port 4210) 以 `250Hz` 串流輸出遙測數據。
    * **Core 0：** 獨立運行 Wi-Fi AP 熱點 (`ReuleauxTune`) 與即時網頁調參儀表板，完全不干擾控制週期。
-3. **自適應平衡點積分修正：** 透過飛輪轉速積分 (`target_angle += Ka * ω * dt`) 自動消除機械重心偏移誤差，並支援一鍵寫入 NVS Flash 永久保存。
+3. **自適應平衡點積分修正：** 透過飛輪轉速積分 (`target_angle += Ka * ω * dt`) 自動消除機械重心偏移誤差。
 4. **感測器暫存器級延遲突破：** 開機動態將 AS5600 濾波器切換至 `2x` 快速模式（延遲由 `2.2ms` 降至 `0.29ms`），解決高速轉動下電氣角度落後導致力矩衰減的瓶頸。
 
 ## 🛠️ 硬體規格清單
