@@ -1,4 +1,4 @@
-# 萊洛三角形反作用力矩自平衡控制系統 (Reuleaux Reaction Wheel Balance)
+# 萊洛三角形單軸自平衡控制系統 (Reuleaux Reaction Wheel Balance)
 
 基於 **ESP32 雙核微控制器** 與 **SimpleFOC 磁場導向控制** 之單軸動量輪自平衡裝置。系統結合 MPU-6050 姿態感測與 AS5600 磁編碼器，在單一接觸點上實現高動態響應的物理自平衡與自適應重心修正。
 
