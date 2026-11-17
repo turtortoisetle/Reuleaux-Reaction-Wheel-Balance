@@ -5,7 +5,7 @@
 ## 📂 專案文件與程式碼導覽
 
 * **技術報告與開發紀錄 (`docs/`)**
-  * [📄 自平衡萊洛三角形系統開發報告](docs/01_Reuleaux_Balance_System_Development.pdf) — 完整硬體架構、控制律推導、10+ 次機構迭代與延遲除錯紀錄
+  * [📄 自平衡萊洛三角形系統開發報告](docs/自平衡萊落三角形系統開發.pdf) — 完整硬體架構、控制律推導、10+ 次機構迭代與延遲除錯紀錄
   * [📄 慣性測量單元 (IMU) 理論基礎與控制工程實務](docs/02_IMU_Theory_and_Control_Practice.pdf) — MEMS 原理、離散濾波、姿態解算與硬體抗干擾
 * **嵌入式韌體 (`firmware/`)**
   * [💻 reuleaux_balance.ino](firmware/reuleaux_balance.ino) — ESP32 雙核任務隔離韌體 (v32)，包含 500Hz 閉環控制與 Wi-Fi WebServer 即時調參介面
